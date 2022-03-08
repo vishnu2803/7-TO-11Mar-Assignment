@@ -1,0 +1,122 @@
+\*Q- Difference between JDK, JRE and JVM
+ 1
+Definition
+JDK (Java Development Kit) is a software development kit to develop applications in Java. In addition to JRE, JDK also contains number of development tools (compilers, JavaDoc, Java Debugger etc.).
+JRE (Java Runtime Environment) is the implementation of JVM and is defined as a software package that provides Java class libraries, along with Java Virtual Machine (JVM), and other components to run applications written in Java programming.
+JVM (Java Virtual Machine) is an abstract machine that is platform-dependent and has three notions as a specification, a document that describes requirement of JVM implementation, implementation, a computer program that meets JVM requirements, and instance, an implementation that executes Java byte code provides a runtime environment for executing Java byte code.
+ 2
+Prime functionality
+JDK is primarily used for code execution and has prime functionality of development.
+On other hand JRE is majorly responsible for creating environment for code execution.
+JVM on other hand specifies all the implementations and responsible to provide these implementations to JRE.
+ 3
+Platform Independence
+JDK is platform dependent i.e for different platforms different JDK required.
+Like of JDK JRE is also platform dependent.
+JVM is platform independent.
+ 4
+Tools
+As JDK is responsible for prime development so it contains tools for developing, debugging and monitoring java application.
+On other hand JRE does not contain tools such as compiler or debugger etc. Rather it contains class libraries and other supporting files that JVM requires to run the program.
+JVM does not include software development tools.
+ 5
+Implementation
+JDK = Java Runtime Environment (JRE) + Development tools
+JRE = Java Virtual Machine (JVM) + Libraries to run the application
+JVM = Only Runtime environment for executing the Java byte code.
+
+Q- What is bytecode?
+ 
+--> Bytecode is program code that has been compiled from source code into low-level code designed for a software interpreter. It may be executed by a virtual machine (such as a JVM) or further compiled into machine code, which is recognized by the processor.
+
+Q-What makes Java platform independent?
+
+-->Java is platform independent. Because the Java compiler converts the source code to bytecode, which is Intermidiate Language. Bytecode can be executed on any platform (OS) using JVM( Java Virtual Machine). ... Platform independent language means once compiled you can execute the program on any platform (OS)
+
+Q-Architecture of JVM
+
+-->
+
+Q- Class loader functionalities?
+
+-->1.Delegation Model.
+ 2.Unique Classes.
+3. Visibility.
+
+2.) Perform product of 2 Matrix class objects.
+
+class GFG {
+ 
+    static int N = 4;
+ 
+    static void multiply(int mat1[][],
+                         int mat2[][], int res[][])
+    {
+        int i, j, k;
+        for (i = 0; i < N; i++) {
+            for (j = 0; j < N; j++) {
+                res[i][j] = 0;
+                for (k = 0; k < N; k++)
+                    res[i][j] += mat1[i][k]
+                                 * mat2[k][j];
+            }
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        int mat1[][] = { { 1, 1, 1, 1 },
+                         { 2, 2, 2, 2 },
+                         { 3, 3, 3, 3 },
+                         { 4, 4, 4, 4 } };
+ 
+        int mat2[][] = { { 1, 1, 1, 1 },
+                         { 2, 2, 2, 2 },
+                         { 3, 3, 3, 3 },
+                         { 4, 4, 4, 4 } };
+   int res[][] = new int[N][N];
+        int i, j;
+        multiply(mat1, mat2, res);
+ 
+        System.out.println("Result matrix"  + " is ");
+        for (i = 0; i < N; i++) {
+            for (j = 0; j < N; j++)
+                System.out.print(res[i][j]  + " ");
+            System.out.println();
+        }
+    }
+}
+
+3.) Find transpose of Matrix Object
+
+class GFG
+{
+    static final int N = 4;
+   
+    static void transpose(int A[][], int B[][])
+    {
+        int i, j;
+        for (i = 0; i < N; i++)
+            for (j = 0; j < N; j++)
+                B[i][j] = A[j][i];
+    }
+    public static void main (String[] args)
+    {
+        int A[][] = { {1, 1, 1, 1},
+                      {2, 2, 2, 2},
+                      {3, 3, 3, 3},
+                      {4, 4, 4, 4}};
+     
+        int B[][] = new int[N][N], i, j;
+             transpose(A, B);
+    
+        System.out.print("Result matrix is \n");
+        for (i = 0; i < N; i++)
+        {
+            for (j = 0; j < N; j++)
+            System.out.print(B[i][j] + " ");
+            System.out.print("\n");
+        }
+    }
+}
+ 
